@@ -1,19 +1,16 @@
 import java.util.Scanner;
 
-//https://codeforces.com/problemset/problem/282/A
+//https://codeforces.com/problemset/problem/263/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        short n = scanner.nextShort();
-        short x = 0;
-        scanner.nextLine();
-        for (short i = 0; i < n; i++) {
-            String statement = scanner.nextLine();
-            if(statement.contains("++"))
-                x++;
-            else
-                x--;
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= 5; j++) {
+                if(scanner.nextByte() == 1){
+                    System.out.println(Math.abs(3-i) + Math.abs(3-j));
+                    break;
+                }
+            }
         }
-        System.out.println(x);
     }
 }
