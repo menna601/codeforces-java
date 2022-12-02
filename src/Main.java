@@ -1,19 +1,18 @@
 import java.util.Scanner;
 
-//https://codeforces.com/problemset/problem/71/A
+//https://codeforces.com/problemset/problem/231/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        byte noOfWords = scanner.nextByte();
-        for (byte i = 0; i < noOfWords; i++) {
-            String word = scanner.next();
-            int wordLength = word.length();
-            char firstChar = word.charAt(0);
-            char lastChar = word.charAt(wordLength -1);
-            if(wordLength > 10 )
-                System.out.println("" + firstChar + (wordLength-2) + lastChar);
-            else
-                System.out.println(word);
+        short noOfProblems = scanner.nextShort();
+        short problemSolvedCount = 0;
+        for (short i = 0; i < noOfProblems; i++) {
+            byte sum = 0;
+            for (byte j = 0; j < 3; j++)
+                sum += scanner.nextByte();
+            if (sum >= 2)
+                problemSolvedCount++;
         }
+        System.out.println(problemSolvedCount);
     }
 }
