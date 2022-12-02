@@ -1,18 +1,25 @@
 import java.util.Scanner;
 
-//https://codeforces.com/problemset/problem/231/A
+//https://codeforces.com/problemset/problem/158/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        short noOfProblems = scanner.nextShort();
-        short problemSolvedCount = 0;
-        for (short i = 0; i < noOfProblems; i++) {
-            byte sum = 0;
-            for (byte j = 0; j < 3; j++)
-                sum += scanner.nextByte();
-            if (sum >= 2)
-                problemSolvedCount++;
+        short count = 0;
+        byte n = scanner.nextByte();
+        byte k = scanner.nextByte();
+        byte kthScore=0;
+        for (byte i = 1; i <= n; i++) {
+            byte value = scanner.nextByte();
+            if (value == 0)
+                break;
+            if (i == k) {
+                kthScore = value;
+                count++;
+            }
+            else if (value >= kthScore)
+                count++;
+            else break;
         }
-        System.out.println(problemSolvedCount);
+        System.out.println(count);
     }
 }
