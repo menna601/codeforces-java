@@ -1,23 +1,23 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-//https://codeforces.com/problemset/problem/431/A
+//https://codeforces.com/problemset/problem/731/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        short[] stripsCalories = new short[4];
-        int sum = 0;
+        char[] wordChars = scanner.next().toCharArray();
+        char previousChar = 'a';
+        short minRotations = 0;
 
-        for (short i = 0; i < stripsCalories.length; i++)
-            stripsCalories[i] = scanner.nextShort();
+        for (byte i = 0; i < wordChars.length; i++) {
+            byte distance = (byte) Math.abs(wordChars[i] - previousChar);
+            if (distance > 13)
+                minRotations += 26 - distance;
+            else
+                minRotations += distance;
 
-        String[] pressSequence = scanner.next().split("");
-        for (String s : pressSequence) {
-            sum += stripsCalories[Integer.parseInt(s) - 1];
+            previousChar = wordChars[i];
         }
-
-        System.out.println(sum);
-
+        System.out.println(minRotations);
     }
 }
