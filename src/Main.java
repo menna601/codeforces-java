@@ -2,20 +2,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-//https://codeforces.com/problemset/problem/265/A
+//https://codeforces.com/problemset/problem/9/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        final String[] probability = {"0/1", "1/6", "1/3", "1/2", "2/3", "5/6", "1/1"};
 
-        char[] stonesSeq = scanner.next().toCharArray();
-        char[] instructions = scanner.next().toCharArray();
-        byte currentPosition = 0;
+        byte max = (byte) Math.max(scanner.nextByte(), scanner.nextByte());
+        byte numerator = (byte) (6 - max + 1);
 
-        for (char instruction : instructions) {
-            if (instruction == stonesSeq[currentPosition])
-                currentPosition++;
-        }
-
-        System.out.println(currentPosition + 1);
+        System.out.println(probability[numerator]);
     }
 }
