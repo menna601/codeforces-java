@@ -1,20 +1,16 @@
-import java.util.InputMismatchException;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
-//https://codeforces.com/problemset/problem/799/A
+//https://codeforces.com/problemset/problem/443/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Set<Character> chars = new HashSet<>();
 
-        short cakesNeededCount = scanner.nextShort();
-        short timeNeeded = scanner.nextShort();
-        short bakedCakesSameTimeCount = scanner.nextShort();
-        short o2BuildTime = scanner.nextShort();
+        for (char c : scanner.nextLine().replaceAll("\\}|\\{| |,", "").toCharArray())
+            chars.add(c);
 
-        short o1Time = (short) (Math.ceil((double) cakesNeededCount/bakedCakesSameTimeCount) * timeNeeded);
-        if((o2BuildTime + timeNeeded) >= o1Time)
-            System.out.println("NO");
-        else
-            System.out.println("YES");
+        System.out.println(chars.size());
     }
 }
