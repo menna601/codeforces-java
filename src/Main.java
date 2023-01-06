@@ -1,29 +1,27 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//https://codeforces.com/problemset/problem/294/A
+//https://codeforces.com/problemset/problem/709/A
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        byte noOfWires = scanner.nextByte();
-        short[] birdsByWire = new short[noOfWires + 2];
+        int numOfOranges = scanner.nextInt();
+        int maxOrangeSize = scanner.nextInt();
+        int maxOrangesSize = scanner.nextInt();
+        long sumOfOranges = 0;
+        int count = 0;
 
-        for (byte i = 1; i <= noOfWires; i++)
-            birdsByWire[i] = scanner.nextShort();
-
-        byte noOfShots = scanner.nextByte();
-
-        for (byte i = 0; i < noOfShots; i++) {
-            byte wire = scanner.nextByte();
-            short birdNum = scanner.nextShort();
-            birdsByWire[wire - 1] += birdNum - 1;
-            birdsByWire[wire + 1] += birdsByWire[wire] - birdNum;
-            birdsByWire[wire] = 0;
+        for (int i = 0; i < numOfOranges; i++) {
+            int currentOrange = scanner.nextInt();
+            if (currentOrange <= maxOrangeSize) {
+                sumOfOranges += currentOrange;
+                if (sumOfOranges > maxOrangesSize) {
+                    sumOfOranges = 0;
+                    count++;
+                }
+            }
         }
-
-        for (byte i = 1; i <= noOfWires; i++)
-            System.out.println(birdsByWire[i]);
-
+        System.out.println(count);
     }
 }
